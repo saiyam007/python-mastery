@@ -1,0 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import streamlit as st
+
+
+def main():
+    st.title('This is my E-commerce Dashboard') # Title of the dashboard
+    st.sidebar.title('Upload your file here') # Sidebar to upload the file
+    
+    uploaded_file = st.sidebar.file_uploader('Upload your file here', type=['csv','xlsx']) # File uploader
+    
+    if uploaded_file is not None:
+        try:
+            if uploaded_file.name.endswith('csv'):
+                df = pd.read_csv(uploaded_file)
+            else:
+                df = pd.read_excel(uploaded_file)
+            
+            st.sidebar.success(f'{uploaded_file.name} File successfully uploaded')
+            
+            st.subheader(f'Data Overview of {uploaded_file.name} ')
+            
+            st.dataframe(df)
+            
+            # st.write(df.head())    
+            
+            st.subheader('Data Description')
+            st.write('**Columns in the dataset**', df.columns)
+            st.write('**Shape of the dataset**', df.shape)
+            st.write('**Data Types**', df.dtypes)
+            st.write('**Missing Values**', df.isnull().sum())
+            st.write(df.describe())
+        
+        except Exception as e:
+            print(e)
+            df = pd.read_excel(uploaded_file)
+
+
+if __name__ == '__main__':
+    main()
+    
