@@ -32,7 +32,17 @@ def main():
             st.write('**Data Types**', df.dtypes)
             st.write('**Missing Values**', df.isnull().sum())
             st.write(df.describe())
-        
+            
+            plt.figure(figsize=(8, 6))
+            sns.countplot(data=df, x='Gender')
+            plt.title('Count Plot of Gender')
+            
+            # Display the plot in Streamlit
+            st.pyplot(plt)
+            sns.countplot(data=df, x='Age', hue='Gender')
+            plt.title('Count Plot of Gender')
+
+            st.pyplot(plt)
         except Exception as e:
             print(e)
             df = pd.read_excel(uploaded_file)
