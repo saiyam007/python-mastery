@@ -46,8 +46,10 @@ def main():
         except Exception as e:
             print(e)
             df = pd.read_excel(uploaded_file)
+            print("This is exceeption class")
 
 
 if __name__ == '__main__':
     main()
     
+
