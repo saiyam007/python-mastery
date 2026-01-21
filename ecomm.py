@@ -7,6 +7,7 @@ import streamlit as st
 
 def main():
     print("Htis is main oy fule ") 
+    pritrntn("checking this is worijngbdfg dhndsnfuiosbnf)
     print("this is streamlit code for forntned)
     st.title('This is my E-commerce Dashboard') # Title of the dashboard
     st.sidebar.title('Upload your file here') # Sidebar to upload the file
@@ -54,5 +55,6 @@ def main():
 if __name__ == '__main__':
     main()
     
+
 
 
